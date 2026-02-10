@@ -785,15 +785,52 @@
           <!-- ✅ MOVED: Event Schedule + Dress Code BELOW Gallery -->
           <div class="card half reveal" id="timelineSection">
             <h2 class="sectionTitle">Event Schedule</h2>
-            <div class="timeline">
-              <div class="tItem"><div class="tDot"></div><div class="tBody"><b>11:30</b><span>Guest arrival</span></div></div>
-              <div class="tItem"><div class="tDot"></div><div class="tBody"><b>12:00</b><span>Ceremony begins</span></div></div>
-              <div class="tItem"><div class="tDot"></div><div class="tBody"><b>13:00</b><span>Lunch / Reception</span></div></div>
-              <div class="tItem"><div class="tDot"></div><div class="tBody"><b>15:00</b><span>Photos & free time</span></div></div>
-            </div>
-            <p style="margin:10px 0 0;color:rgba(255,255,255,.70);font-size:12px;line-height:1.6">
-              (You can edit times in the HTML.)
-            </p>
+            <!-- DAY 1 -->
+<h3 style="margin:6px 0 8px;color:var(--gold2);font-weight:900;">
+  DAY 1 – Wedding Ceremony
+</h3>
+
+<div class="timeline">
+  <div class="tItem">
+    <div class="tDot"></div>
+    <div class="tBody"><b>11:30</b><span>Guest arrival</span></div>
+  </div>
+  <div class="tItem">
+    <div class="tDot"></div>
+    <div class="tBody"><b>12:00</b><span>Ceremony begins</span></div>
+  </div>
+  <div class="tItem">
+    <div class="tDot"></div>
+    <div class="tBody"><b>13:00</b><span>Lunch / Reception</span></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- DAY 2 -->
+<h3 style="margin:6px 0 8px;color:var(--gold2);font-weight:900;">
+  DAY 2 – Celebration & Gathering
+</h3>
+
+<div class="timeline">
+  <div class="tItem">
+    <div class="tDot"></div>
+    <div class="tBody"><b>09:00</b><span>Family breakfast</span></div>
+  </div>
+  <div class="tItem">
+    <div class="tDot"></div>
+    <div class="tBody"><b>11:00</b><span>Blessing ceremony</span></div>
+  </div>
+  <div class="tItem">
+    <div class="tDot"></div>
+    <div class="tBody"><b>13:00</b><span>Lunch & farewell</span></div>
+  </div>
+</div>
+
+<p style="margin:10px 0 0;color:rgba(255,255,255,.70);font-size:12px;line-height:1.6">
+  (You can edit times in the HTML.)
+</p>
+
           </div>
 
           <div class="card half reveal" id="dressSection">
@@ -931,15 +968,13 @@
       toTop.classList.toggle("show", y > 220);
     }, {passive:true});
 
-    // Performance: pause particles while scrolling
-    let _scrollingTimer = null;
-    window.addEventListener("scroll", () => {
-      document.body.classList.add("scrolling");
-      clearTimeout(_scrollingTimer);
-      _scrollingTimer = setTimeout(() => {
-        document.body.classList.remove("scrolling");
-      }, 140);
-    }, {passive:true});
+    // Parallax background position + top button
+window.addEventListener("scroll", () => {
+  const y = window.scrollY || 0;
+  heroTop.style.backgroundPosition = `center calc(50% + ${y * 0.08}px)`;
+  toTop.classList.toggle("show", y > 220);
+}, { passive:true });
+
 
     toTop.addEventListener("click", ()=> window.scrollTo({top:0, behavior:"smooth"}));
 
